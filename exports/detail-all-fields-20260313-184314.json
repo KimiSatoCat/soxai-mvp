@@ -1,0 +1,311 @@
+[
+  {
+    "field": "_time",
+    "count": 8526,
+    "nonNull": 8526,
+    "nullRate": 0,
+    "sample": "2026-02-11 09:45:00+00:00",
+    "types": [
+      "string"
+    ]
+  },
+  {
+    "field": "activity_act_mlc",
+    "count": 8526,
+    "nonNull": 8423,
+    "nullRate": 1.2,
+    "sample": 0,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "activity_actigraph",
+    "count": 8526,
+    "nonNull": 7962,
+    "nullRate": 6.6,
+    "sample": 1608,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "activity_calorie",
+    "count": 8526,
+    "nonNull": 7962,
+    "nullRate": 6.6,
+    "sample": 14,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "activity_steps",
+    "count": 8526,
+    "nonNull": 7962,
+    "nullRate": 6.6,
+    "sample": 396,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "custom_group",
+    "count": 8526,
+    "nonNull": 8526,
+    "nullRate": 0,
+    "sample": "normal_0",
+    "types": [
+      "string"
+    ]
+  },
+  {
+    "field": "health_hr_mean",
+    "count": 8526,
+    "nonNull": 7962,
+    "nullRate": 6.6,
+    "sample": 70.03,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "health_hrv_mean",
+    "count": 8526,
+    "nonNull": 7962,
+    "nullRate": 6.6,
+    "sample": 37,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "health_spo2_100",
+    "count": 8526,
+    "nonNull": 7962,
+    "nullRate": 6.6,
+    "sample": 99,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "health_stress",
+    "count": 8526,
+    "nonNull": 7962,
+    "nullRate": 6.6,
+    "sample": 48,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "health_T",
+    "count": 8526,
+    "nonNull": 7962,
+    "nullRate": 6.6,
+    "sample": 32.0625,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "month",
+    "count": 8526,
+    "nonNull": 8526,
+    "nullRate": 0,
+    "sample": 2,
+    "types": [
+      "number"
+    ]
+  },
+  {
+    "field": "result",
+    "count": 8526,
+    "nonNull": 8526,
+    "nullRate": 0,
+    "sample": "_result",
+    "types": [
+      "string"
+    ]
+  },
+  {
+    "field": "sleep_ahi",
+    "count": 8526,
+    "nonNull": 2957,
+    "nullRate": 65.3,
+    "sample": 0,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "sleep_hr_mean",
+    "count": 8526,
+    "nonNull": 2641,
+    "nullRate": 69,
+    "sample": 47,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "sleep_hrv_mean",
+    "count": 8526,
+    "nonNull": 2641,
+    "nullRate": 69,
+    "sample": 55,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "sleep_respiration",
+    "count": 8526,
+    "nonNull": 2957,
+    "nullRate": 65.3,
+    "sample": 9,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "sleep_sleep",
+    "count": 8526,
+    "nonNull": 2957,
+    "nullRate": 65.3,
+    "sample": -1,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "sleep_sleep_1min",
+    "count": 8526,
+    "nonNull": 2957,
+    "nullRate": 65.3,
+    "sample": 44411,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "sleep_stage",
+    "count": 8526,
+    "nonNull": 2957,
+    "nullRate": 65.3,
+    "sample": 3,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "sleep_stage_1min",
+    "count": 8526,
+    "nonNull": 2957,
+    "nullRate": 65.3,
+    "sample": 33311,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "table",
+    "count": 8526,
+    "nonNull": 8526,
+    "nullRate": 0,
+    "sample": 3,
+    "types": [
+      "number"
+    ]
+  },
+  {
+    "field": "uid",
+    "count": 8526,
+    "nonNull": 8526,
+    "nullRate": 0,
+    "sample": "mGcFj8TAAbcBRlxVNH50IG3UAkQ2",
+    "types": [
+      "string"
+    ]
+  },
+  {
+    "field": "user_valid",
+    "count": 8526,
+    "nonNull": 8423,
+    "nullRate": 1.2,
+    "sample": 1,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "user_wear",
+    "count": 8526,
+    "nonNull": 8423,
+    "nullRate": 1.2,
+    "sample": 1,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "utc_offset_mins",
+    "count": 8526,
+    "nonNull": 8526,
+    "nullRate": 0,
+    "sample": 540,
+    "types": [
+      "number"
+    ]
+  },
+  {
+    "field": "workday",
+    "count": 8526,
+    "nonNull": 8526,
+    "nullRate": 0,
+    "sample": 1,
+    "types": [
+      "number"
+    ]
+  },
+  {
+    "field": "year",
+    "count": 8526,
+    "nonNull": 8526,
+    "nullRate": 0,
+    "sample": 2026,
+    "types": [
+      "number"
+    ]
+  },
+  {
+    "field": "year_week",
+    "count": 8526,
+    "nonNull": 8526,
+    "nullRate": 0,
+    "sample": "2026_07",
+    "types": [
+      "string"
+    ]
+  }
+]

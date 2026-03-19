@@ -1,0 +1,123 @@
+[
+  {
+    "field": "health_hr_mean",
+    "count": 8526,
+    "nonNull": 7962,
+    "nullRate": 6.6,
+    "sample": 70.03,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "health_hrv_mean",
+    "count": 8526,
+    "nonNull": 7962,
+    "nullRate": 6.6,
+    "sample": 37,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "health_stress",
+    "count": 8526,
+    "nonNull": 7962,
+    "nullRate": 6.6,
+    "sample": 48,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "sleep_ahi",
+    "count": 8526,
+    "nonNull": 2957,
+    "nullRate": 65.3,
+    "sample": 0,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "sleep_hr_mean",
+    "count": 8526,
+    "nonNull": 2641,
+    "nullRate": 69,
+    "sample": 47,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "sleep_hrv_mean",
+    "count": 8526,
+    "nonNull": 2641,
+    "nullRate": 69,
+    "sample": 55,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "sleep_respiration",
+    "count": 8526,
+    "nonNull": 2957,
+    "nullRate": 65.3,
+    "sample": 9,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "sleep_sleep",
+    "count": 8526,
+    "nonNull": 2957,
+    "nullRate": 65.3,
+    "sample": -1,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "sleep_sleep_1min",
+    "count": 8526,
+    "nonNull": 2957,
+    "nullRate": 65.3,
+    "sample": 44411,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "sleep_stage",
+    "count": 8526,
+    "nonNull": 2957,
+    "nullRate": 65.3,
+    "sample": 3,
+    "types": [
+      "null",
+      "number"
+    ]
+  },
+  {
+    "field": "sleep_stage_1min",
+    "count": 8526,
+    "nonNull": 2957,
+    "nullRate": 65.3,
+    "sample": 33311,
+    "types": [
+      "null",
+      "number"
+    ]
+  }
+]
