@@ -582,13 +582,12 @@ function guessTimeFmt(v) {
   return 'unknown';
 }
 
-/* ── 静的ファイル配信（本番ビルド） ──────────────────────── */
+/* ── 静的ファイル配信（Vercel以外の単体サーバー用） ────── */
 
 const distDir = path.join(__dirname, 'dist');
-if (fs.existsSync(distDir)) {
+if (!process.env.VERCEL && fs.existsSync(distDir)) {
   app.use(express.static(distDir));
   app.get('*', function (req, res) {
-    // /api/* は上のルートで処理済みなのでここには到達しない
     res.sendFile(path.join(distDir, 'index.html'));
   });
 }
@@ -613,3 +612,6 @@ app.listen(PORT, function () {
   }
   diag('startup', 'info', 'Started. Missing: [' + missing.join(', ') + ']');
 });
+
+// Vercel Serverless / テスト用にappをエクスポート
+module.exports = app;
