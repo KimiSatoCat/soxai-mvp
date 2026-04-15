@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useCallback, useMemo } from "react";
+﻿import { useState, useEffect, useCallback, useMemo, startTransition } from "react";
 import {
   ResponsiveContainer,
   ComposedChart,
@@ -380,35 +380,28 @@ const [rowDataConfirmed, setRowDataConfirmed] = useState(false);
       }));
 
       // ── display ステータス: buildNormalizedDaily の成否（独立判定） ──
-      let dailyNormBuilt = false;
+      // startTransition で正規化をノンブロッキングにしUIを先に更新する
       if (anyNorm) {
         const infoRowsForNorm = newNormInfo?.rows || [];
         const detailRowsForNorm = newNormDetail?.rows || [];
-        try {
-          const result = buildNormalizedDaily(infoRowsForNorm, detailRowsForNorm);
-
-console.log("infoRowsForNorm length =", infoRowsForNorm.length);
-console.log("detailRowsForNorm length =", detailRowsForNorm.length);
-console.log("normalizedDaily length =", result?.normalizedDaily?.length);
-console.log("normalizedDaily first date =", result?.stats?.dateFrom);
-console.log("normalizedDaily last date =", result?.stats?.dateTo);
-
-if (result?.normalizedDaily?.length > 0) {
-  setDailyNorm(result);
-  dailyNormBuilt = true;
-}
-        } catch (e) {
-          console.error("[buildNormalizedDaily] 正規化失敗:", e);
-        }
-      }
-
-      setPipe(p => ({
-        ...p,
-        display: dailyNormBuilt ? "success" : anyNorm ? "warning" : "pending",
-      }));
-
-      if (dailyNormBuilt) {
-        setTab("home");
+        setPipe(p => ({ ...p, display: "pending" }));
+        startTransition(() => {
+          try {
+            const result = buildNormalizedDaily(infoRowsForNorm, detailRowsForNorm);
+            if (result?.normalizedDaily?.length > 0) {
+              setDailyNorm(result);
+              setPipe(p => ({ ...p, display: "success" }));
+              setTab("home");
+            } else {
+              setPipe(p => ({ ...p, display: "warning" }));
+            }
+          } catch (e) {
+            console.error("[buildNormalizedDaily] 正規化失敗:", e);
+            setPipe(p => ({ ...p, display: "failure" }));
+          }
+        });
+      } else {
+        setPipe(p => ({ ...p, display: "pending" }));
       }
       
     } catch (err) {

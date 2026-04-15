@@ -9,4 +9,16 @@ export default defineConfig({
       '/api': 'http://localhost:3001',
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // React本体を分離（ブラウザキャッシュを効かせる）
+          'vendor-react': ['react', 'react-dom'],
+          // Recharts（大きいので分離して遅延ロード）
+          'vendor-recharts': ['recharts'],
+        },
+      },
+    },
+  },
 })
