@@ -10,6 +10,7 @@ import {
   Legend,
 } from "recharts";
 import { analyzeUltraLongTerm } from "../utils/ultraLongTerm/analyzeUltraLongTerm";
+import { buildTcmAnnotations } from "../utils/ultraLongTerm/buildTcmAnnotations";
 
 function Card({ title, children, accent = "#334155" }) {
   return (
@@ -304,6 +305,17 @@ export default function UltraLongTermPanel({
 
   const sufficient = rangedRows.length >= 56;
 
+  // 全カテゴリの周期指標を flatten して TCM 注釈を生成
+  const tcmAnnotations = useMemo(() => {
+    if (!ultra) return { byPeriod: {}, annotations: [], researchNotes: [] };
+    const allMetrics = {
+      ...(ultra.metrics?.sleep || {}),
+      ...(ultra.metrics?.health || {}),
+      ...(ultra.metrics?.activity || {}),
+    };
+    return buildTcmAnnotations(allMetrics);
+  }, [ultra]);
+
   const items =
     selectedCategory === "sleep"
       ? ultra?.sleep || []
@@ -424,6 +436,41 @@ export default function UltraLongTermPanel({
       {items.map((metric) => (
         <UltraMetricCard key={metric.key} metric={metric} />
       ))}
+
+      {/* 中医学的周期注釈パネル */}
+      <Card title="中医学的周期注釈（研究参考）" accent="#b45309">
+        <p style={{ fontSize: 11, color: "var(--theme-text-muted, #94a3b8)", margin: "0 0 10px", lineHeight: 1.6 }}>
+          検出された周期を中医学・東洋医学の理論（七日節律、月節律、五運六気など）と照合した参考注釈です。診断・医療行為ではありません。
+        </p>
+        {tcmAnnotations.annotations.map((ann, i) => (
+          <div key={i} style={{
+            padding: "8px 12px",
+            marginBottom: 6,
+            borderRadius: 6,
+            background: "rgba(180,87,9,0.08)",
+            border: "1px solid rgba(180,87,9,0.2)",
+            fontSize: 13,
+            color: "var(--theme-text, #1e293b)",
+            lineHeight: 1.7,
+          }}>
+            {ann}
+          </div>
+        ))}
+        {tcmAnnotations.researchNotes.length > 0 && (
+          <details style={{ marginTop: 10 }}>
+            <summary style={{ fontSize: 12, color: "var(--theme-text-sub, #64748b)", cursor: "pointer" }}>
+              研究メモを展開（理論出典）
+            </summary>
+            <div style={{ marginTop: 8 }}>
+              {tcmAnnotations.researchNotes.map((note, i) => (
+                <p key={i} style={{ fontSize: 11, color: "#64748b", margin: "4px 0", lineHeight: 1.7 }}>
+                  {note}
+                </p>
+              ))}
+            </div>
+          </details>
+        )}
+      </Card>
 
       <Card accent="#94a3b8">
         <p

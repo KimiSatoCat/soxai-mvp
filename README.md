@@ -1,5 +1,28 @@
 # SOXAI Health Intelligence — MVP Stage 6 (API-aligned)
 
+## 起動手順（重要：OneDrive 上ではなく、このフォルダから実行すること）
+
+```
+# ターミナル1：プロキシサーバーを起動
+npm install
+npm run server
+
+# ターミナル2：フロントエンドを起動
+npm run dev
+```
+
+ブラウザで `http://localhost:5173` を開き、SOXAI アカウントのメール・パスワードでログイン。
+
+### CLIツール（export-csv など）を使う場合
+`.env` ファイルに以下を追記：
+```
+SOXAI_EMAIL=your-email@example.com
+SOXAI_PASSWORD=your-password
+```
+その後 `node soxai-cli.mjs login` を実行。
+
+---
+
 このMVPは**仕様確認用ツール**です。完成版ではありません。
 SOXAI APIとの接続確認、データ構造の把握、純正スコア候補の検出、失敗箇所の特定を目的とします。
 取得が失敗しても、それがコード不具合なのか仕様未確定なのかを切り分けるための実装です。

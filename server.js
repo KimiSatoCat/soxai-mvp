@@ -40,12 +40,14 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const fetch = require('node-fetch');
+const path = require('path');
+const fs = require('fs');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = process.env.PROXY_PORT || 3001;
+const PORT = process.env.PORT || process.env.PROXY_PORT || 3001;
 const SOXAI_API_BASE = process.env.SOXAI_API_BASE || '';
 const ENDPOINT_DAILY_INFO = process.env.ENDPOINT_DAILY_INFO || '';
 const ENDPOINT_DAILY_DETAIL = process.env.ENDPOINT_DAILY_DETAIL || '';
@@ -578,6 +580,17 @@ function guessTimeFmt(v) {
     if (/^\d{4}\/\d{2}\/\d{2}/.test(v)) return 'YYYY/MM/DD?';
   }
   return 'unknown';
+}
+
+/* ── 静的ファイル配信（本番ビルド） ──────────────────────── */
+
+const distDir = path.join(__dirname, 'dist');
+if (fs.existsSync(distDir)) {
+  app.use(express.static(distDir));
+  app.get('*', function (req, res) {
+    // /api/* は上のルートで処理済みなのでここには到達しない
+    res.sendFile(path.join(distDir, 'index.html'));
+  });
 }
 
 /* ── start ───────────────────────────────────────────────── */

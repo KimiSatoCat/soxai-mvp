@@ -46,7 +46,8 @@ import UltraLongTermPanel from "./components/UltraLongTermPanel.jsx";
 import CharacterPet from "./components/CharacterPet.jsx";
 import { computeGrowthState, getLatestWeather } from "./utils/characterGrowth.js";
 
-const PROXY = "http://localhost:3001";
+// 開発時は localhost:3001、本番(Render等)は同一オリジン
+const PROXY = import.meta.env.VITE_API_URL ?? "";
 
 const RANGE_PRESETS = [
   { key: "1m", label: "1ヶ月分", days: 30 },
