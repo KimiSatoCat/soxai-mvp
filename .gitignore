@@ -1,3 +1,9 @@
 node_modules
 dist
 .env
+
+# 個人データ・ログ・出力はコミットしない
+exports/
+fetch-result.json
+*.log
+server-log.txt
